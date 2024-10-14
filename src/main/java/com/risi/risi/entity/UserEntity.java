@@ -20,7 +20,10 @@ public class UserEntity {
     private String userId;
     private String username;
     private String password;
+
+    @Column(columnDefinition = "TEXT") // This allows storing long descriptions
     private String description = "";
+
     private String image = "";
     private String role;
     private String token;
