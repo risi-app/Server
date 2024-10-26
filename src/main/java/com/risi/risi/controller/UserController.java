@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @GetMapping("/check/{userId}/{userPw}")
     public UserEntity checkUser(@PathVariable String userId, @PathVariable String userPw) {

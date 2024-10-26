@@ -32,7 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String uri = request.getRequestURI();
         log.debug("Request URI: {}", uri);
 
-        if (uri.equals("/home") || uri.equals("/signin") || uri.equals("/login") || uri.startsWith("/api/user/") || uri.startsWith("/api/post") || uri.startsWith("/uploads")) {
+        if (uri.equals("/home") || uri.equals("/signin") || uri.equals("/login") || uri.startsWith("/api/user/") || uri.startsWith("/api/post") || uri.startsWith("/uploads") || uri.startsWith("/api/comment")) {
             filterChain.doFilter(request, response);
             return;
         }
