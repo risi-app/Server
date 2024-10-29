@@ -48,6 +48,7 @@ public class UserService {
     }
 
     public void registerUser(UserEntity userEntity) {
+        System.out.println("service passed");
         userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
         userRepository.save(userEntity);
     }

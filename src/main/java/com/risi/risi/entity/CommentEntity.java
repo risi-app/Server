@@ -28,10 +28,4 @@ public class CommentEntity {
     @JsonBackReference
     @ToString.Exclude
     private PostEntity post;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference
-    @ToString.Exclude
-    private UserEntity user;
 }

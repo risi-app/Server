@@ -34,7 +34,6 @@ public class CommentService {
             CommentEntity comment = new CommentEntity();
             comment.setContent(content);
             comment.setPost(post);
-            comment.setUser(user);
             comment.setUsername(user.getUsername());
             comment.setProfileImg(user.getImage());
 

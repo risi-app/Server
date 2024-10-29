@@ -102,15 +102,4 @@ public class PostService {
         Optional<PostEntity> postOptional = postRepository.findById(postId);
         return postOptional.orElse(null);
     }
-
-    public void toggleLike(int postId, String userId) {
-        Optional<PostEntity> postOptional = postRepository.findById(postId);
-        if (postOptional.isPresent()) {
-            PostEntity post = postOptional.get();
-            post.toggleLike(userId);
-            postRepository.save(post);
-        } else {
-            throw new RuntimeException("Post not found");
-        }
-    }
 }
