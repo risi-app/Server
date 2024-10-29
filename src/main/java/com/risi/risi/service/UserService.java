@@ -21,13 +21,13 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    private JwtUtils jwtUtils;
+    JwtUtils jwtUtils;
 
     public UserEntity checkUser(String userId, String userPw) {
         Optional<UserEntity> userOptional = userRepository.findByUserId(userId);

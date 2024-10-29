@@ -20,10 +20,10 @@ import java.util.Optional;
 public class PostService {
 
     @Autowired
-    private PostRepository postRepository;
+    PostRepository postRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     @Transactional
     public PostEntity uploadPost(String userId, String title, String description, MultipartFile file) {
@@ -101,5 +101,16 @@ public class PostService {
     public PostEntity getPost(int postId) {
         Optional<PostEntity> postOptional = postRepository.findById(postId);
         return postOptional.orElse(null);
+    }
+
+    public void toggleLike(int postId, String userId) {
+        Optional<PostEntity> postOptional = postRepository.findById(postId);
+        if (postOptional.isPresent()) {
+            PostEntity post = postOptional.get();
+            post.toggleLike(userId);
+            postRepository.save(post);
+        } else {
+            throw new RuntimeException("Post not found");
+        }
     }
 }
